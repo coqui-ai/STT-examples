@@ -47,3 +47,12 @@ Nim:
 ----
 
 * `nim_mic_vad_streaming <nim_mic_vad_streaming/README.md>`_.
+
+Help + Community
+----------------
+
+1. `Github Discussions <https://github.com/coqui-ai/stt-examples/discussions/>`_ - find and join open-ended community discussions related to :frog:STT-examples
+
+2. `Matrix Chat <https://matrix.to/#/+coqui:matrix.org>`_ - the :frog: Matrix channel where you can chat with folks about :frog:STT-examples, get help, share ideas :)
+
+3. `Github Issues <https://github.com/coqui-ai/stt-examples/issues>`_ - If you ran into a specific error/problem, feel free to open an issue in the repo.
