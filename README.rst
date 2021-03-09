@@ -1,13 +1,13 @@
-:frog:STT 0.9.x Examples
+🐸STT 0.9.x Examples
 ==========================
 
-These are various examples on how to use or integrate :frog:STT using our packages.
+These are various examples on how to use or integrate 🐸STT using our packages.
 
-It is a good way to just try out :frog:STT before learning how it works in detail, as well as a source of inspiration for ways you can integrate it into your application or solve common tasks like voice activity detection (VAD) or microphone streaming.
+It is a good way to just try out 🐸STT before learning how it works in detail, as well as a source of inspiration for ways you can integrate it into your application or solve common tasks like voice activity detection (VAD) or microphone streaming.
 
 Contributions are welcome!
 
-**Note:** These examples target :frog:STT **0.9.x** only. If you're using a different release, you need to go to the corresponding branch for the release:
+**Note:** These examples target 🐸STT **0.9.x** only. If you're using a different release, you need to go to the corresponding branch for the release:
 
 * `v0.9.x <https://github.com/coqui-ai/STT-examples/tree/r0.9>`_
 * `v0.8.x <https://github.com/coqui-ai/STT-examples/tree/r0.8>`_
@@ -51,8 +51,8 @@ Nim:
 Help + Community
 ----------------
 
-1. `Github Discussions <https://github.com/coqui-ai/stt-examples/discussions/>`_ - find and join open-ended community discussions related to :frog:STT-examples
+1. `Github Discussions <https://github.com/coqui-ai/stt-examples/discussions/>`_ - find and join open-ended community discussions related to 🐸STT-examples
 
-2. `Matrix Chat <https://matrix.to/#/+coqui:matrix.org>`_ - the :frog: Matrix channel where you can chat with folks about :frog:STT-examples, get help, share ideas :)
+2. `Matrix Chat <https://matrix.to/#/+coqui:matrix.org>`_ - the 🐸 Matrix channel where you can chat with folks about 🐸STT-examples, get help, share ideas :)
 
 3. `Github Issues <https://github.com/coqui-ai/stt-examples/issues>`_ - If you ran into a specific error/problem, feel free to open an issue in the repo.
