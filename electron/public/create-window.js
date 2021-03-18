@@ -35,7 +35,7 @@ function createWindow(model) {
 		app.quit()
 	});
 	
-	// message from front-end App.js, request that this file be processed by DeepSpeech
+	// message from front-end App.js, request that this file be processed by STT
 	ipcMain.handle('recognize-wav', async function (event, file) {
 		const filePath = path.resolve(__dirname, 'audio', file);
 		const results = await recognizeWav(filePath, model);
@@ -45,7 +45,7 @@ function createWindow(model) {
 	
 	let count = 0;
 	function checkDone(file, results) {
-		if (process.argv.indexOf('DEEPSPEECH_TEST') > -1) {
+		if (process.argv.indexOf('STT_TEST') > -1) {
 			// setup a timeout of 10 minutes and return failed test
 			// in case it cannot really do test
 			setTimeout(() => {

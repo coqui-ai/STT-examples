@@ -114,7 +114,7 @@ class App(QMainWindow):
         self.browseButton = QPushButton('Browse', self)
         self.browseButton.setToolTip('Select a wav file')
         self.modelsButton = QPushButton('Browse', self)
-        self.modelsButton.setToolTip('Select deepspeech models folder')
+        self.modelsButton.setToolTip('Select stt models folder')
         self.transcribeWav = QPushButton('Transcribe Wav', self)
         self.transcribeWav.setToolTip('Start Wav Transcription')
         self.openMicrophone = QPushButton('Start Speaking', self)
@@ -205,7 +205,7 @@ class App(QMainWindow):
     @pyqtSlot()
     def models_on_click(self):
         logging.debug('Models Browse Button clicked')
-        self.dirName = QFileDialog.getExistingDirectory(self, "Select deepspeech models directory")
+        self.dirName = QFileDialog.getExistingDirectory(self, "Select stt models directory")
         if self.dirName:
             self.modelsBox.setText(self.dirName)
             logging.debug(self.dirName)
@@ -353,7 +353,7 @@ class App(QMainWindow):
         logging.debug("Saving Transcript @: %s" % waveFile.rstrip(".wav") + ".txt")
 
         for i, segment in enumerate(segments):
-            # Run deepspeech on the chunk that just completed VAD
+            # Run stt on the chunk that just completed VAD
             logging.debug("Processing chunk %002d" % (i,))
             audio = np.frombuffer(segment, dtype=np.int16)
             output = wavTranscriber.stt(self.model[0], audio, sample_rate)

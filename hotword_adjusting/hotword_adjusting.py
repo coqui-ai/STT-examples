@@ -1,5 +1,5 @@
-import deepspeech
-from deepspeech import Model, version
+import stt
+from stt import Model, version
 import numpy as np
 import wave
 import itertools
@@ -21,12 +21,12 @@ def test_file(filename, hotwords, min_prio, max_prio, prio_steps):
 
     prio_product = itertools.product(prio_lists, repeat=len(hotwords))
     for x in itertools.product(prio_lists, repeat=len(hotwords)):
-        DeepSpeech.clearHotWords()
+        STT.clearHotWords()
         for y in enumerate(hotwords):
-            DeepSpeech.addHotWord(hotwords[y[0]], x[y[0]])
+            STT.addHotWord(hotwords[y[0]], x[y[0]])
            
         
-        print(f"{hotwords} = {x} :: [{DeepSpeech.stt(audio)}]")
+        print(f"{hotwords} = {x} :: [{STT.stt(audio)}]")
 
 
 def main():
@@ -37,7 +37,7 @@ def main():
 
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='DeepSpeech hot-word adjusting.')
+    parser = argparse.ArgumentParser(description='STT hot-word adjusting.')
     parser.add_argument('--model', required=True,
                     help='Path to the model (protocol buffer binary file)')
     parser.add_argument('--scorer', required=True,
@@ -55,7 +55,7 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    DeepSpeech = Model(args.model)
-    DeepSpeech.enableExternalScorer(args.scorer)
+    STT = Model(args.model)
+    STT.enableExternalScorer(args.scorer)
 
     main()

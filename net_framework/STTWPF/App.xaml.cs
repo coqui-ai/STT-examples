@@ -1,10 +1,10 @@
 ﻿using CommonServiceLocator;
-using DeepSpeech.WPF.ViewModels;
-using DeepSpeechClient.Interfaces;
+using STT.WPF.ViewModels;
+using STTClient.Interfaces;
 using GalaSoft.MvvmLight.Ioc;
 using System.Windows;
 
-namespace DeepSpeechWPF
+namespace STTWPF
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -18,11 +18,11 @@ namespace DeepSpeechWPF
 
             try
             {
-                //Register instance of DeepSpeech
-                DeepSpeechClient.DeepSpeech deepSpeechClient =
-                    new DeepSpeechClient.DeepSpeech("deepspeech-0.9.3-models.pbmm");
+                //Register instance of STT
+                STTClient.STT deepSpeechClient =
+                    new STTClient.STT("coqui-stt-0.9.3-models.pbmm");
 
-                SimpleIoc.Default.Register<IDeepSpeech>(() => deepSpeechClient);
+                SimpleIoc.Default.Register<ISTT>(() => deepSpeechClient);
                 SimpleIoc.Default.Register<MainWindowViewModel>();
             }
             catch (System.Exception ex)
@@ -35,8 +35,8 @@ namespace DeepSpeechWPF
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
-            //Dispose instance of DeepSpeech
-            ServiceLocator.Current.GetInstance<IDeepSpeech>()?.Dispose();
+            //Dispose instance of STT
+            ServiceLocator.Current.GetInstance<ISTT>()?.Dispose();
         }
     }
 }

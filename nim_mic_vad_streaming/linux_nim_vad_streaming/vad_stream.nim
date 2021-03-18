@@ -1,6 +1,6 @@
 import os ,deques,math,strutils,parseopt,tables,strformat
 import alsa,webrtcvad,wav
-import deepspeech
+import stt
 
 var 
     args = initTable[string, string]()

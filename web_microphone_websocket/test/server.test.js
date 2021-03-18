@@ -8,9 +8,9 @@ const io = require('socket.io-client');
 
 const url = 'http://localhost:4000';
 
-let audioFile1 = process.env.HOME + '/DeepSpeech/audio/2830-3980-0043.wav';
-let audioFile2 = process.env.HOME + '/DeepSpeech/audio/8455-210777-0068.wav';
-let audioFile3 = process.env.HOME + '/DeepSpeech/audio/4507-16021-0012.wav';
+let audioFile1 = process.env.HOME + '/STT/audio/2830-3980-0043.wav';
+let audioFile2 = process.env.HOME + '/STT/audio/8455-210777-0068.wav';
+let audioFile3 = process.env.HOME + '/STT/audio/4507-16021-0012.wav';
 
 let socket;
 

@@ -1,6 +1,6 @@
 import os ,deques,math,strutils,parseopt,tables
 import strformat
-import webrtcvad,portaudio,deepspeech,wav
+import webrtcvad,portaudio,stt,wav
 
 
 proc sum[T](temp: Deque[T]): int = 
@@ -68,7 +68,7 @@ when isMainModule:
     codeV = setMode(vad,3'i32)
     assert codeV == 0'i32
 
-    #DeepSpeech model initialization.
+    #STT model initialization.
     codeD = createModel(modelPath,unsafeaddr(modelPtr))
     if codeD == 0'i32:
         echo("Model Created Successfully")

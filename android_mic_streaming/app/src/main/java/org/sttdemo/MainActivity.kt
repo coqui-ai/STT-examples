@@ -1,4 +1,4 @@
-package org.deepspeechdemo
+package org.sttdemo
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -11,18 +11,18 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import kotlinx.android.synthetic.main.activity_main.*
-import org.mozilla.deepspeech.libdeepspeech.DeepSpeechModel
+import ai.coqui.libstt.STTModel
 import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
 
 class MainActivity : AppCompatActivity() {
-    private var model: DeepSpeechModel? = null
+    private var model: STTModel? = null
 
     private var transcriptionThread: Thread? = null
     private var isRecording: AtomicBoolean = AtomicBoolean(false)
 
-    private val TFLITE_MODEL_FILENAME = "deepspeech-0.9.3-models.tflite"
-    private val SCORER_FILENAME = "deepspeech-0.9.3-models.scorer"
+    private val TFLITE_MODEL_FILENAME = "coqui-stt-0.9.3-models.tflite"
+    private val SCORER_FILENAME = "coqui-stt-0.9.3-models.scorer"
 
     private fun checkAudioPermission() {
         // Permission is automatically granted on SDK < 23 upon installation.
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        model = DeepSpeechModel(tfliteModelPath)
+        model = STTModel(tfliteModelPath)
         model?.enableExternalScorer(scorerPath)
 
         return true

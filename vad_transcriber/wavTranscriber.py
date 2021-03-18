@@ -2,7 +2,7 @@ import glob
 import webrtcvad
 import logging
 import wavSplit
-from deepspeech import Model
+from stt import Model
 from timeit import default_timer as timer
 
 '''
@@ -11,7 +11,7 @@ Load the pre-trained model into the memory
 @param scorer: Scorer file
 
 @Retval
-Returns a list [DeepSpeech Object, Model Load Time, Scorer Load Time]
+Returns a list [STT Object, Model Load Time, Scorer Load Time]
 '''
 def load_model(models, scorer):
     model_load_start = timer()

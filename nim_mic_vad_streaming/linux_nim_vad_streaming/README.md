@@ -1,19 +1,19 @@
 # MICROPHONE VAD STREAMING
-Minimalistic example to demonstrate the DeepSpeech streaming  API in NIM.Raw audio is streamed from microphone to the DeepSpeech based on VAD (voice Activity Detection).
+Minimalistic example to demonstrate the STT streaming  API in NIM.Raw audio is streamed from microphone to the STT based on VAD (voice Activity Detection).
 
 ## Prerequisites:
-0) Please read ``PREREQUISITES`` in [README](../README.md)  for getting the required ``libdeepspeech.so`` shared library.
+0) Please read ``PREREQUISITES`` in [README](../README.md)  for getting the required ``libstt.so`` shared library.
 1) This example depends on the ``libasound.so``(which is distributed along with all major linux distros and present in linker's default path)
 
 _Note:  You may need to install ``libasound.so``  if not found_
 ```
 sudo apt-get install libasound2
 ```
-2) Download the pre-trained DeepSpeech english model (1089MB) and Scorer Package(~900MB):
+2) Download the pre-trained STT english model (1089MB) and Scorer Package(~900MB):
 
 ```
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer
+wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.pbmm
+wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.scorer
 ```
 
 
@@ -21,7 +21,7 @@ wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0
 
 1. Install Nim bindings for deespeech version-0.7.0 .
 ```nim
-nimble install https://gitlab.com/eagledot/nim-deepspeech@0.7.0
+nimble install https://gitlab.com/eagledot/nim-stt@0.7.0
 ```
 
 2. Install Nim bindings for ALSA-lib C which is  needed for microphone access.

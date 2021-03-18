@@ -2,7 +2,7 @@
 This script provides an example of hot-word boosting usage. It also allows adjusting your boost values to see how they change the final transcription.
 
 # How to use?
-Run using `python 3.9`, while having a `deepspeech` installed.
+Run using `python 3.9`, while having a `stt` installed.
 
 This works from version 0.9.0 since it was the version that added this feature.
 Example of usage:

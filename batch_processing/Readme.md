@@ -11,7 +11,7 @@ Version: 2004
 Os Build : 19041.329
 ```
 
-Here are the versions I have installed via chocolaty
+Here are the versions I have installed via chocolatey
 
 ```
 Chocolatey v0.10.15
@@ -95,11 +95,11 @@ I am using these exact versions:
 
 Here is the output :
 ```
-PS C:\Users\jmike\Documents\GitHub\DeepSpeech-examples\batch_processing> . .\test.ps1
+PS C:\Users\jmike\Documents\GitHub\STT-examples\batch_processing> . .\test.ps1
 2020-06-14 11:05:01.015450: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library cudart64_100.dll
-Loading model from file C:\Users\jmike\Documents\GitHub\DeepSpeech\deepspeech-0.7.3-models.pbmm
+Loading model from file C:\Users\jmike\Documents\GitHub\STT\coqui-stt-0.7.3-models.pbmm
 TensorFlow: v1.15.0-24-gceb46aae58
-DeepSpeech: v0.7.3-0-g88584941
+ Coqui STT: v0.7.3-0-g88584941
 2020-06-14 11:05:01.237478: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
 2020-06-14 11:05:01.244057: I tensorflow/stream_executor/platform/default/dso_loader.cc:44] Successfully opened dynamic library nvcuda.dll
 2020-06-14 11:05:01.466608: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1618] Found device 0 with properties:
@@ -118,7 +118,7 @@ pciBusID: 0000:01:00.0
 2020-06-14 11:05:02.068133: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1178] 0:   N
 2020-06-14 11:05:02.073298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1304] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 1410 MB memory) -> physical GPU (device: 0, name: GeForce MX250, pci bus id: 0000:01:00.0, compute capability: 6.1)
 Loaded model in 0.941s.
-Loading scorer from files C:\Users\jmike\Documents\GitHub\DeepSpeech\deepspeech-0.7.3-models.scorer
+Loading scorer from files C:\Users\jmike\Documents\GitHub\STT\coqui-stt-0.7.3-models.scorer
 Loaded scorer in 0.0143s.
 Warning: original sample rate (44100) is different than 16000hz. Resampling might produce erratic speech recognition.
 Running inference.
@@ -128,13 +128,13 @@ Running via the GPU takes half the time of using the CPU and has good results.
 
 # Driver command line
 
-`./driver.py --model c:/Users/jmike/Documents/GitHub/DeepSpeech/deepspeech-0.9.3-models.pbmm  --scorer c:/Users/jmike/Documents/GitHub/DeepSpeech/deepspeech-0.9.3-models.scorer --dirname c:/Users/jmike/Downloads/podcast/`
+`./driver.py --model c:/Users/jmike/Documents/GitHub/STT/coqui-stt-0.9.3-models.pbmm  --scorer c:/Users/jmike/Documents/GitHub/STT/coqui-stt-0.9.3-models.scorer --dirname c:/Users/jmike/Downloads/podcast/`
 
 # Example
 
 It will then run the individual commands like :
 
-`deepspeech --model C:\Users\jmike\Documents\GitHub\DeepSpeech\deepspeech-0.9.3-models.pbmm --scorer C:\Users\jmike\Documents\GitHub\DeepSpeech\deepspeech-0.9.3-models.scorer --audio 'C:\Users\jmike\Downloads\podcast\45374977-48000-2-24d9a365625bb.mp3.wav' --json`
+`stt --model C:\Users\jmike\Documents\GitHub\STT\coqui-stt-0.9.3-models.pbmm --scorer C:\Users\jmike\Documents\GitHub\STT\coqui-stt-0.9.3-models.scorer --audio 'C:\Users\jmike\Downloads\podcast\45374977-48000-2-24d9a365625bb.mp3.wav' --json`
 
 
 Websites referenced:
@@ -143,14 +143,14 @@ https://chocolatey.org/packages/cuda
 https://mozilla-voice-stt.readthedocs.io/en/v0.8.1/?badge=latest
 https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Windows&target_arch=x86_64&target_version=10
 https://discourse.mozilla.org/t/query-regarding-speed-of-training-and-issues-with-convergence/41874
-https://discourse.mozilla.org/t/right-cuda-version-for-using-deepspeech-gpu/41927/12
+https://discourse.mozilla.org/t/right-cuda-version-for-using-stt-gpu/41927/12
 https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#download-windows
 https://github.com/MichalMazurek/python-poetry/blob/d3f6df6a6c2587d7a6034719716de257917c4b0f/dockerfiles.py
 https://github.com/amitt001/delegator.py
 https://github.com/tensorflow/tensorflow/issues/25807
 https://github.com/tensorflow/tensorflow/issues/28223
 https://github.com/tensorflow/tensorflow/issues/5968
-https://hacks.mozilla.org/2019/12/deepspeech-0-6-mozillas-speech-to-text-engine/
+https://hacks.mozilla.org/2019/12/coqui-stt-0-6-mozillas-speech-to-text-engine/
 https://palletsprojects.com/p/click/
 https://www.howtoforge.com/tutorial/ffmpeg-audio-conversion/
 https://www.joe0.com/2019/10/19/how-resolve-tensorflow-2-0-error-could-not-load-dynamic-library-cudart64_100-dll-dlerror-cudart64_100-dll-not-found/

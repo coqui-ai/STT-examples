@@ -1,15 +1,15 @@
 # MICROPHONE VAD STREAMING
-Minimalistic example to demonstrate the DeepSpeech streaming  API in NIM.Raw audio is streamed from microphone to the DeepSpeech based on VAD (voice Activity Detection).
+Minimalistic example to demonstrate the STT streaming  API in NIM.Raw audio is streamed from microphone to the STT based on VAD (voice Activity Detection).
 
 ## Prerequisites:
-0) Please read ``PREREQUISITES`` in [README](../README.md)  for getting the required ``libdeepspeech.so`` shared library.
+0) Please read ``PREREQUISITES`` in [README](../README.md)  for getting the required ``libstt.so`` shared library.
 1) This example depends on the ``libportaudio.dll``(precompiled portaudio library).Make sure you have this library  in PATH.If you don't have one or are unable to build one ,you can get one from [here](https://gitlab.com/eagledot/nim-portaudio/lib).
 
-2) Download the pre-trained DeepSpeech english model (1089MB):
+2) Download the pre-trained STT english model (1089MB):
 
 ```
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.pbmm
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0.9.3-models.scorer
+wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.pbmm
+wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.scorer
 ```
 
 
@@ -17,7 +17,7 @@ wget https://github.com/mozilla/DeepSpeech/releases/download/v0.9.3/deepspeech-0
 
 1. Install Nim bindings for deespeech version-0.7.0 . 
 ```nim
-nimble install https://gitlab.com/eagledot/nim-deepspeech@0.7.0
+nimble install https://gitlab.com/eagledot/nim-stt@0.7.0
 ```
 
 2. Install Nim bindings for portudio which is  needed for microphone access.
