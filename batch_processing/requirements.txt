@@ -59,3 +59,4 @@ typed-ast==1.4.1
 urllib3==1.25.9
 Werkzeug==1.0.1
 wrapt==1.12.1
+pillow>=8.3.0 # not directly required, pinned by Snyk to avoid a vulnerability
