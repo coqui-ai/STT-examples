@@ -1,4 +1,4 @@
-# NodeJS voice recognition example using Mozilla STT
+# NodeJS voice recognition example using Coqui STT
 
 Download the pre-trained model (1.8GB):
 
