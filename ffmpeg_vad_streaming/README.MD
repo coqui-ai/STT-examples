@@ -21,13 +21,13 @@ sudo apt-get install ffmpeg
 Here is an example for a local audio file:
 ```bash
 node ./index.js --audio <AUDIO_FILE> \
-                --model $HOME/models/output_graph.pbmm
+                --model $HOME/models/model.tflite
 ```
 
 Here is an example for a remote RTMP-Stream:
 ```bash
 node ./index.js  --audio rtmp://<IP>:1935/live/teststream \
-                 --model $HOME/models/output_graph.pbmm
+                 --model $HOME/models/model.tflite
 ```
 
 ## Examples
@@ -35,23 +35,23 @@ Real time streaming inference with STT's example audio ([audio-0.4.1.tar.gz](htt
 ```bash
 node ./index.js --audio $HOME/audio/2830-3980-0043.wav \
                 --scorer $HOME/models/kenlm.scorer \
-                --model $HOME/models/output_graph.pbmm
+                --model $HOME/models/model.tflite
 ```
 ```bash
 node ./index.js --audio $HOME/audio/4507-16021-0012.wav \
                 --scorer $HOME/models/kenlm.scorer \
-                --model $HOME/models/output_graph.pbmm
+                --model $HOME/models/model.tflite
 ```
 ```bash
 node ./index.js --audio $HOME/audio/8455-210777-0068.wav \
                 --scorer $HOME/models/kenlm.scorer \
-                --model $HOME/models/output_graph.pbmm
+                --model $HOME/models/model.tflite
 ```
 Real time streaming inference in combination with a RTMP server.
 ```bash
 node ./index.js --audio rtmp://<HOST>/<APP>/<KEY> \
                 --scorer $HOME/models/kenlm.scorer \
-                --model $HOME/models/output_graph.pbmm
+                --model $HOME/models/model.tflite
 ```
 
 ## Notes

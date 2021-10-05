@@ -20,7 +20,7 @@ namespace STTWPF
             {
                 //Register instance of STT
                 STTClient.STT deepSpeechClient =
-                    new STTClient.STT("coqui-stt-0.9.3-models.pbmm");
+                    new STTClient.STT("model.tflite");
 
                 SimpleIoc.Default.Register<ISTT>(() => deepSpeechClient);
                 SimpleIoc.Default.Register<MainWindowViewModel>();

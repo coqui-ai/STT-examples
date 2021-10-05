@@ -6,7 +6,7 @@ import itertools
 import argparse
 
 # Example of a valid execution:
-# hotwords_adjusting.py --model model.pbmm --scorer.scorer --audio audio/filename.wav --min -100.0 --max 100.0 --steps 3 --hot_words hot,cold
+# hotwords_adjusting.py --model model.tflite --scorer.scorer --audio audio/filename.wav --min -100.0 --max 100.0 --steps 3 --hot_words hot,cold
 # This tests combinations of hot-words: 'hot' and 'cold' on audiofile 'filename.wav'
 # using prios from range [-100;100] by doing 3 steps: [-100, 0, 100]
 

@@ -9,13 +9,8 @@ _Note:  You may need to install ``libasound.so``  if not found_
 ```
 sudo apt-get install libasound2
 ```
-2) Download the pre-trained STT english model (1089MB) and Scorer Package(~900MB):
 
-```
-wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.pbmm
-wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.scorer
-```
-
+2) Download a pre-trained model and scorer from the [Coqui Model Zoo](https://coqui.ai/models)
 
 ## Installation
 
@@ -61,7 +56,7 @@ nim c -f -d:release --threads:on vad_stream.nim
 ## Usage:
 * Using ``--saveWav`` flag is optional ,it will save the recorded audio as `.wav` files. 
 ``` nim 
-./vad_stream --model:<path/to/pretrained/model.pbmm>  --scorer:<path/to/.scorer>  --saveWav
+./vad_stream --model:<path/to/pretrained/model.tflite>  --scorer:<path/to/scorer.scorer>  --saveWav
 ```
 
 

@@ -14,17 +14,17 @@ npm run rebuild
 Download and extract audio files to `/public` directory
 
 ```
-wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/audio-0.9.3.tar.gz
-tar xfvz audio-0.9.3.tar.gz -C ./public/
+wget https://github.com/coqui-ai/STT/releases/download/v1.0.0/audio-1.0.0.tar.gz
+tar xfvz audio-1.0.0.tar.gz -C ./public/
 ```
 
-(Optional) Download or softlink STT 0.9.3 model files to the root of the project:
+(Optional) Download a pre-trained model and scorer from the [Coqui Model Zoo](https://coqui.ai/models) to the root of the project:
 
 ```
 mkdir models
 cd models
-wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.pbmm
-wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.scorer
+mv $HOME/Downloads/model.tflite .
+mv $HOME/Downloads/huge-vocab.scorer .
 cd ..
 ```
 

@@ -5,12 +5,12 @@ const fs = require('fs');
 const wav = require('wav');
 const Speaker = require('speaker');
 
-let DEEPSPEECH_MODEL; // path to stt model directory
-if (process.env.DEEPSPEECH_MODEL) {
-	DEEPSPEECH_MODEL = process.env.DEEPSPEECH_MODEL;
+let STT_MODEL; // path to stt model directory
+if (process.env.STT_MODEL) {
+	STT_MODEL = process.env.STT_MODEL;
 }
 else {
-	DEEPSPEECH_MODEL = __dirname + '/coqui-stt-0.9.3-models';
+	STT_MODEL = __dirname + '/coqui-stt-models';
 }
 
 let SILENCE_THRESHOLD = 200; // how many milliseconds of inactivity before processing the audio
@@ -22,14 +22,14 @@ const VAD_MODE = VAD.Mode.VERY_AGGRESSIVE;
 const vad = new VAD(VAD_MODE);
 
 function createModel(modelDir) {
-	let modelPath = modelDir + '.pbmm';
+	let modelPath = modelDir + '.tflite';
 	let scorerPath = modelDir + '.scorer';
 	let model = new STT.Model(modelPath);
 	model.enableExternalScorer(scorerPath);
 	return model;
 }
 
-let englishModel = createModel(DEEPSPEECH_MODEL);
+let englishModel = createModel(STT_MODEL);
 
 let modelStream;
 let recordedChunks = 0;

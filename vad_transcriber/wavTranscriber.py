@@ -58,7 +58,7 @@ Resolve directory path for the models and fetch each of them.
 Retunns a tuple containing each of the model files (pb, scorer)
 '''
 def resolve_models(dirName):
-    pb = glob.glob(dirName + "/*.pbmm")[0]
+    pb = glob.glob(dirName + "/*.tflite")[0]
     logging.debug("Found Model: %s" % pb)
 
     scorer = glob.glob(dirName + "/*.scorer")[0]

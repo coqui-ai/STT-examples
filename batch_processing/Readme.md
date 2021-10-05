@@ -128,13 +128,13 @@ Running via the GPU takes half the time of using the CPU and has good results.
 
 # Driver command line
 
-`./driver.py --model c:/Users/jmike/Documents/GitHub/STT/coqui-stt-0.9.3-models.pbmm  --scorer c:/Users/jmike/Documents/GitHub/STT/coqui-stt-0.9.3-models.scorer --dirname c:/Users/jmike/Downloads/podcast/`
+`./driver.py --model model.tflite  --scorer huge-vocab.scorer --dirname some_dir`
 
 # Example
 
 It will then run the individual commands like :
 
-`stt --model C:\Users\jmike\Documents\GitHub\STT\coqui-stt-0.9.3-models.pbmm --scorer C:\Users\jmike\Documents\GitHub\STT\coqui-stt-0.9.3-models.scorer --audio 'C:\Users\jmike\Downloads\podcast\45374977-48000-2-24d9a365625bb.mp3.wav' --json`
+`stt --model model.tflite --scorer huge-vocab.scorer --audio audio.wav --json`
 
 
 Websites referenced:

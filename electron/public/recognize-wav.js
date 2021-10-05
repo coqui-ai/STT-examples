@@ -4,22 +4,15 @@ const path = require('path');
 const wav = require('wav');
 const download = require('./download');
 
-// return the stt model or download it if it is not found
+// return the stt model or throw if it is not found
 function getModel(appDataPath, callback) {
-	let modelPath = path.resolve(appDataPath, 'coqui-stt-0.9.3-models.pbmm');
-	let scorerPath = path.resolve(appDataPath, 'coqui-stt-0.9.3-models.scorer');
+	let modelPath = path.resolve(appDataPath, 'model.tflite');
+	let scorerPath = path.resolve(appDataPath, 'huge-vocab.scorer');
 	if (fs.existsSync(modelPath) && fs.existsSync(scorerPath)) {
 		callback(createModel(modelPath, scorerPath));
 	}
 	else {
-		// if the model files do not exist, download and save them to AppData path
-		console.log('\nDOWNLOADING MODEL TO: '+appDataPath+'\n');
-		const downloadPath = 'https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models';
-		download(downloadPath+'.pbmm', modelPath, function() {
-			download(downloadPath+'.scorer', scorerPath, function() {
-				callback(createModel(modelPath, scorerPath));
-			});
-		});
+		throw new Error("No model present.");
 	}
 }
 

@@ -13,7 +13,7 @@ pushd ${THIS}
   pulseaudio &
 
   python mic_vad_streaming.py \
-	  --model $HOME/STT/models/coqui-stt-0.9.3-models.pbmm \
-	  --scorer $HOME/STT/models/coqui-stt-0.9.3-models.scorer \
+	  --model $HOME/STT/models/model.tflite \
+	  --scorer $HOME/STT/models/huge-vocab.scorer \
 	  --file $HOME/STT/audio/2830-3980-0043.wav
 popd

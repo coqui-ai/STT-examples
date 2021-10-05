@@ -19,12 +19,12 @@ import delegator
 @click.option("--ext", default=".mp3")
 @click.option(
     "--model",
-    default="coqui-stt-0.9.3-models.pbmm",
+    default="model.tflite",
     type=click.Path(exists=True, resolve_path=True),
 )
 @click.option(
     "--scorer",
-    default="coqui-stt-0.9.3-models.scorer",
+    default="huge-vocab.scorer",
     type=click.Path(exists=True, resolve_path=True),
 )
 

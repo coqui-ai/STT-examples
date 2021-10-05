@@ -65,8 +65,8 @@ namespace STTUWP
         {
             string projectFolder = Directory.GetCurrentDirectory();
             string modelsFolder = Path.Combine(projectFolder, "models");
-            string acousticModelPath = Path.Combine(modelsFolder, "coqui-stt-0.9.3-models.pbmm");
-            string scorerPath = Path.Combine(modelsFolder, "coqui-stt-0.9.3-models.scorer");
+            string acousticModelPath = Path.Combine(modelsFolder, "model.tflite");
+            string scorerPath = Path.Combine(modelsFolder, "huge-vocab.scorer");
 
             client = new STTClient.STT(acousticModelPath);
             client.EnableExternalScorer(scorerPath);

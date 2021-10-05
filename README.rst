@@ -1,5 +1,5 @@
-Coqui STT main branch Examples
-==============================
+Coqui STT 1.0.x Examples
+========================
 
 These are various examples on how to use or integrate 🐸STT using our packages.
 
@@ -7,7 +7,7 @@ It is a good way to just try out 🐸STT before learning how it works in detail,
 
 Contributions are welcome!
 
-**Note:** These examples target 🐸STT **main branch** only. If you're using a different release, you need to go to the corresponding branch for the release:
+**Note:** These examples target 🐸STT **1.0.x** only. If you're using a different release, you need to go to the corresponding branch for the release:
 
 * `v1.0.x <https://github.com/coqui-ai/STT-examples/tree/r1.0>`_
 * `v0.9.x <https://github.com/coqui-ai/STT-examples/tree/r0.9>`_

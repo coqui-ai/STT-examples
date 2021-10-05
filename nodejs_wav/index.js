@@ -5,13 +5,13 @@ const MemoryStream = require('memory-stream');
 const Duplex = require('stream').Duplex;
 const Wav = require('node-wav');
 
-let modelPath = './models/coqui-stt-0.9.3-models.pbmm';
+let modelPath = './models/model.tflite';
 
 let model = new STT.Model(modelPath);
 
 let desiredSampleRate = model.sampleRate();
 
-let scorerPath = './models/coqui-stt-0.9.3-models.scorer';
+let scorerPath = './models/huge-vocab.scorer';
 
 model.enableExternalScorer(scorerPath);
 

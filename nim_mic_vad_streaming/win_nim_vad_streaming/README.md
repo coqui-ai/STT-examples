@@ -5,17 +5,11 @@ Minimalistic example to demonstrate the STT streaming  API in NIM.Raw audio is s
 0) Please read ``PREREQUISITES`` in [README](../README.md)  for getting the required ``libstt.so`` shared library.
 1) This example depends on the ``libportaudio.dll``(precompiled portaudio library).Make sure you have this library  in PATH.If you don't have one or are unable to build one ,you can get one from [here](https://gitlab.com/eagledot/nim-portaudio/lib).
 
-2) Download the pre-trained STT english model (1089MB):
-
-```
-wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.pbmm
-wget https://github.com/coqui-ai/STT/releases/download/v0.9.3/coqui-stt-0.9.3-models.scorer
-```
-
+2) Download a pre-trained model and scorer from the [Coqui Model Zoo](https://coqui.ai/models)
 
 ## Installation
 
-1. Install Nim bindings for deespeech version-0.7.0 . 
+1. Install Nim bindings for STT version-0.7.0 . 
 ```nim
 nimble install https://gitlab.com/eagledot/nim-stt@0.7.0
 ```
@@ -53,7 +47,7 @@ nim c -f -d:release vad_stream.nim
 ## Usage:
 * Using ``--saveWav`` flag is optional ,it will save the recorded audio as `.wav` files. 
 ``` nim 
-./vad_stream.exe --model:<path/to/pretrained/model.pbmm>  --scorer:<path/to/.scorer>  --saveWav
+./vad_stream.exe --model:<path/to/pretrained/model.tflite>  --scorer:<path/to/scorer.scorer>  --saveWav
 ```
 
 
