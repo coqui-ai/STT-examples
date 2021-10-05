@@ -19,12 +19,12 @@ import delegator
 @click.option("--ext", default=".mp3")
 @click.option(
     "--model",
-    default="deepspeech-0.8.0-models.pbmm",
+    default="coqui-stt-0.9.3-models.pbmm",
     type=click.Path(exists=True, resolve_path=True),
 )
 @click.option(
     "--scorer",
-    default="deepspeech-0.8.0-models.scorer",
+    default="coqui-stt-0.9.3-models.scorer",
     type=click.Path(exists=True, resolve_path=True),
 )
 
@@ -61,7 +61,7 @@ def main(dirname, ext, model, scorer):
 
         command = " ".join(
             [
-                "deepspeech",
+                "stt",
                 "--model",
                 model,
                 "--scorer",

@@ -1,8 +1,8 @@
 ﻿using CommonServiceLocator;
-using DeepSpeech.WPF.ViewModels;
+using STT.WPF.ViewModels;
 using System.Windows;
 
-namespace DeepSpeechWPF
+namespace STTWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const VAD = require("node-vad");
-const Ds = require('deepspeech');
+const Ds = require('stt');
 const argparse = require('argparse');
 const util = require('util');
 const { spawn } = require('child_process');
@@ -19,7 +19,7 @@ VersionAction.prototype.call = function(parser) {
 	process.exit(0);
 };
 
-let parser = new argparse.ArgumentParser({addHelp: true, description: 'Running DeepSpeech inference.'});
+let parser = new argparse.ArgumentParser({addHelp: true, description: 'Running STT inference.'});
 parser.addArgument(['--model'], {required: true, help: 'Path to the model (protocol buffer binary file)'});
 parser.addArgument(['--scorer'], {help: 'Path to the scorer file', nargs: '?'});
 parser.addArgument(['--audio'], {required: true, help: 'Path to the audio source to run (ffmpeg supported formats)'});

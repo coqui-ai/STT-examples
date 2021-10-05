@@ -8,16 +8,16 @@ pushd ${THIS}
   source ../tests.sh
 
   pip install --user $(get_python_wheel_url "$1")
-  pip install --user -r <(grep -v deepspeech requirements.txt)
+  pip install --user -r <(grep -v stt requirements.txt)
 
   python audioTranscript_cmd.py \
-	  --audio $HOME/DeepSpeech/audio/2830-3980-0043.wav \
+	  --audio $HOME/STT/audio/2830-3980-0043.wav \
 	  --aggressive 0 \
-	  --model $HOME/DeepSpeech/models/
+	  --model $HOME/STT/models/
 
   python audioTranscript_cmd.py \
-	  --audio $HOME/DeepSpeech/audio/2830-3980-0043.wav \
+	  --audio $HOME/STT/audio/2830-3980-0043.wav \
 	  --aggressive 0 \
-	  --model $HOME/DeepSpeech/models/ \
+	  --model $HOME/STT/models/ \
 	  --stream
 popd

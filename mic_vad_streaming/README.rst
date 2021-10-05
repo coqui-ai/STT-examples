@@ -2,7 +2,7 @@
 Microphone VAD Streaming
 ========================
 
-Stream from microphone to DeepSpeech, using VAD (voice activity detection). A fairly simple example demonstrating the DeepSpeech streaming API in Python. Also useful for quick, real-time testing of models and decoding parameters.
+Stream from microphone to STT, using VAD (voice activity detection). A fairly simple example demonstrating the STT streaming API in Python. Also useful for quick, real-time testing of models and decoding parameters.
 
 Installation
 ------------
@@ -32,7 +32,7 @@ Usage
                                [-w SAVEWAV] [-f FILE] -m MODEL [-s SCORER]
                                [-d DEVICE] [-r RATE]
    
-   Stream from microphone to DeepSpeech using VAD
+   Stream from microphone to STT using VAD
    
    optional arguments:
      -h, --help            show this help message and exit

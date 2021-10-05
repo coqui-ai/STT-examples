@@ -1,6 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-/deepspeech-0.6.0-models
+/coqui-stt-0.6.0-models
 
 # dependencies
 /node_modules

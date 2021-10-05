@@ -1,20 +1,15 @@
-# NodeJS voice recognition example using DeepSpeech
+# NodeJS voice recognition example using Coqui STT
 
-Download the pre-trained model (1.8GB):
-
-```
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.0/deepspeech-0.8.0-models.pbmm
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.0/deepspeech-0.8.0-models.scorer
-```
+Download a pre-trained model and scorer from the [Coqui Model Zoo](https://coqui.ai/models)
 
 Edit references to models path if necessary:
 
 ```
-let modelPath = './models/deepspeech-0.8.0-models.pbmm';
-let scorerPath = './models/deepspeech-0.8.0-models.scorer';
+let modelPath = './models/model.tflite';
+let scorerPath = './models/huge-vocab.scorer';
 ```
 
-Install Sox (for .wav file loading):
+Install SoX (for .wav file loading):
 
 ```
 brew install sox
@@ -23,8 +18,8 @@ brew install sox
 Download test audio files:
 
 ```
-wget https://github.com/mozilla/DeepSpeech/releases/download/v0.8.0/audio-0.8.0.tar.gz
-tar xfvz audio-0.8.0.tar.gz
+wget https://github.com/coqui-ai/STT/releases/download/v1.0.0/audio-1.0.0.tar.gz
+tar xfvz audio-1.0.0.tar.gz
 ```
 
 Install NPM dependencies:

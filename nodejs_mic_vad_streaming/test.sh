@@ -10,6 +10,6 @@ pushd ${THIS}
   npm install $(get_npm_package_url)
   npm install
 
-  DEEPSPEECH_MODEL=$HOME/DeepSpeech/models node ./start.js $HOME/DeepSpeech/audio/2830-3980-0043.wav
+  DEEPSPEECH_MODEL=$HOME/STT/models node ./start.js $HOME/STT/audio/2830-3980-0043.wav
 
 popd

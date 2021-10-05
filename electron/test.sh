@@ -22,8 +22,8 @@ pushd ${THIS}
     export ELECTRON_DISABLE_SANDBOX=1
   fi;
 
-  ln -s $HOME/DeepSpeech/models models
-  ln -s ~/DeepSpeech/audio ./public/
+  ln -s $HOME/STT/models models
+  ln -s ~/STT/audio ./public/
 
   export CI=true
 

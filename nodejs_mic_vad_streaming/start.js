@@ -1,16 +1,16 @@
-const DeepSpeech = require('deepspeech');
+const STT = require('stt');
 const VAD = require('node-vad');
 const mic = require('mic');
 const fs = require('fs');
 const wav = require('wav');
 const Speaker = require('speaker');
 
-let DEEPSPEECH_MODEL; // path to deepspeech model directory
+let DEEPSPEECH_MODEL; // path to stt model directory
 if (process.env.DEEPSPEECH_MODEL) {
 	DEEPSPEECH_MODEL = process.env.DEEPSPEECH_MODEL;
 }
 else {
-	DEEPSPEECH_MODEL = __dirname + '/deepspeech-0.8.0-models';
+	DEEPSPEECH_MODEL = __dirname + '/coqui-stt-0.9.3-models';
 }
 
 let SILENCE_THRESHOLD = 200; // how many milliseconds of inactivity before processing the audio
@@ -24,7 +24,7 @@ const vad = new VAD(VAD_MODE);
 function createModel(modelDir) {
 	let modelPath = modelDir + '.pbmm';
 	let scorerPath = modelDir + '.scorer';
-	let model = new DeepSpeech.Model(modelPath);
+	let model = new STT.Model(modelPath);
 	model.enableExternalScorer(scorerPath);
 	return model;
 }
