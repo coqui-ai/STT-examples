@@ -42,7 +42,7 @@ PyYAML==5.3.1
 regex==2020.6.7
 requests==2.23.0
 requests-oauthlib==1.3.0
-rsa==4.0
+rsa==4.7
 scipy==1.4.1
 six==1.15.0
 soundfile==0.10.3.post1
@@ -56,6 +56,6 @@ toml==0.10.1
 tqdm==4.46.1
 tts==0.0.2+f320992
 typed-ast==1.4.1
-urllib3==1.25.9
+urllib3==1.26.5
 Werkzeug==1.0.1
 wrapt==1.12.1
