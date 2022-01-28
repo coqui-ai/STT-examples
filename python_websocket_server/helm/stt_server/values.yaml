@@ -1,4 +1,4 @@
-# Default values for deepspeech-server.
+# Default values for stt-server.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -8,7 +8,7 @@ image:
   repository: "<docker_repo_path>"
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -17,35 +17,25 @@ fullnameOverride: ""
 podAnnotations: {}
 
 podSecurityContext: {}
-# fsGroup: 2000
+  # fsGroup: 2000
 
-securityContext:
-  readOnlyRootFilesystem: false
-  runAsNonRoot: true
-  runAsUser: 1000
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
 
 service:
   type: ClusterIP
   port: 8080
 
 ingress:
-  enabled: true
-  annotations:
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "*"
-    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
-    nginx.ingress.kubernetes.io/proxy-body-size: 20m
-  hosts:
-    - host: "<host>"
-      paths: ["/deepspeech-server"]
-  tls:
-    - secretName: "<secret_name>"
-      hosts:
-        - "<host>"
+  enabled: false
+  annotations: {}
+  hosts: []
+  tls: []
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -57,7 +47,7 @@ resources: {}
   #   memory: 128Mi
   # requests:
   #   cpu: 100m
-#   memory: 128Mi
+  #   memory: 128Mi
 
 autoscaling:
   enabled: false

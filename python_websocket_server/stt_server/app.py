@@ -7,24 +7,24 @@ from pyhocon import ConfigFactory
 from sanic import Sanic, response
 from sanic.log import logger
 
-from deepspeech_server.engine import SpeechToTextEngine
-from deepspeech_server.models import Response, Error
+from stt_server.engine import SpeechToTextEngine
+from stt_server.models import Response, Error
 
-# Load app configs and initialize DeepSpeech model
+# Load app configs and initialize STT model
 conf = ConfigFactory.parse_file("application.conf")
 engine = SpeechToTextEngine(
-    model_path=Path(conf["deepspeech.model"]).absolute().as_posix(),
-    scorer_path=Path(conf["deepspeech.scorer"]).absolute().as_posix(),
+    model_path=Path(conf["stt.model"]).absolute().as_posix(),
+    scorer_path=Path(conf["stt.scorer"]).absolute().as_posix(),
 )
 
 # Initialze Sanic and ThreadPoolExecutor
 executor = ThreadPoolExecutor(max_workers=conf["server.threadpool.count"])
-app = Sanic("deepspeech_server")
+app = Sanic("stt_server")
 
 
 @app.route("/", methods=["GET"])
 async def healthcheck(_):
-    return response.text("Welcome to DeepSpeech Server!")
+    return response.text("Welcome to STT Server!")
 
 
 @app.websocket("/api/v1/stt")

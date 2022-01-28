@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "deepspeech-server.fullname" . }}
+  name: {{ include "stt-server.fullname" . }}
   labels:
-    {{- include "deepspeech-server.labels" . | nindent 4 }}
+    {{- include "stt-server.labels" . | nindent 4 }}
 spec:
 {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
 {{- end }}
   selector:
     matchLabels:
-      {{- include "deepspeech-server.selectorLabels" . | nindent 6 }}
+      {{- include "stt-server.selectorLabels" . | nindent 6 }}
   template:
     metadata:
     {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       labels:
-        {{- include "deepspeech-server.selectorLabels" . | nindent 8 }}
+        {{- include "stt-server.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:

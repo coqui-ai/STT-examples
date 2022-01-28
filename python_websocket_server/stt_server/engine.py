@@ -3,7 +3,7 @@ from io import BytesIO
 
 import ffmpeg
 import numpy as np
-from deepspeech import Model
+from stt import Model
 
 
 def normalize_audio(audio):
@@ -27,13 +27,13 @@ def normalize_audio(audio):
 
 class SpeechToTextEngine:
     def __init__(self, model_path, scorer_path):
-        self.model = Model(model_path=model_path)
-        self.model.enableExternalScorer(scorer_path=scorer_path)
+        self.model = Model(model_path)
+        self.model.enableExternalScorer(scorer_path)
 
     def run(self, audio):
         audio = normalize_audio(audio)
         audio = BytesIO(audio)
         with wave.Wave_read(audio) as wav:
             audio = np.frombuffer(wav.readframes(wav.getnframes()), np.int16)
-        result = self.model.stt(audio_buffer=audio)
+        result = self.model.stt(audio)
         return result

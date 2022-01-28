@@ -1,7 +1,7 @@
 # Python websocket-based server
 
 This directory contains a simple service that receives audio data from clients, and serves the results
-of DeepSpeech inference over a websocket. The server code in this project is a modified version of
+of STT inference over a websocket. The server code in this project is a modified version of
 [this GitHub project](https://github.com/zelo/deepspeech-rest-api).
 
 Because STT transcriptions can typically be considered "long running tasks", using websockets for client-server 
@@ -22,7 +22,7 @@ Server configuration is specified in the [`application.conf`](application.conf) 
 Make sure your model and scorer files are present in the same directory as the `application.conf` file. Then execute:
 
 ```
-python -m deepspeech_server.app
+python -m stt_server.app
 ```
 
 ### Sending requests to server
@@ -65,7 +65,7 @@ Example output:
 ### Kubernetes
 
 The [helm](helm) directory contains an example Helm deployment, that configures an Nginx ingress to expose the 
-DeepSpeech service. The websocket timeout on the ingress is set to 1 hour.
+STT service. The websocket timeout on the ingress is set to 1 hour.
 
 ## Contributing
 
