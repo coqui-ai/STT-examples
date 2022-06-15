@@ -3,7 +3,7 @@
       "model" :"/home/waser/.assistant/models/fr/SR/output_graph.tflite",
       "lm": "/home/waser/.assistant/models/fr/SR/kenlm.scorer",
       "trie": "/home/waser/.assistant/models/fr/SR/trie",
-      "audiofiledir": "/home/waser/.assistant/data/fr/SR/audio/",
+      "audiofiledir": "/tmp/tmp_audio",
       "audiofilelength": "10",
       "debug": "1"
     }
