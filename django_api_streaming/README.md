@@ -4,23 +4,23 @@ Implementation of an API to stream audio files for transcription in Django using
 
 ## Installation
 
-.. code-block:: bash
-
+```bash
    pip install -r requirements.txt
+```
 
 ## Usage
 
 Run the server in local for testing (HTTP).
 
-.. code-block:: bash
-
+```bash
    python manage.py runserver
+```
 
 Run the server in local for production (HTTP).
 
-.. code-block:: bash
-
+```bash
    python manage.py runsslserver
+```
 
 ## Contributions
 
