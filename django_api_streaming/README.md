@@ -10,21 +10,23 @@ Implementation of an API to stream audio files for transcription in Django using
 
 ## Usage
 
-### Running using Docker
+### Using docker-compose
 
-Build the image using `docker build`.
+Update `docker-compose.yml` to point to your models path under `services:stt:volumes`.
 
-```bash
-docker build --rm -f Dockerfile -t stt-django-api .
-```
-
-And run the server using `docker run`. Don't forget to mount your models where the config points to using a mounted volume.
+Build the stack using `docker-compose`.
 
 ```bash
-docker run \
-  --mount type=bind,src='path/to/models/dir',dst=/share/STT/models \
-  stt-django-api
+docker-compose up -d
 ```
+
+Then collect staticfiles.
+
+```bash
+docker-compose run --rm stt /app/manage.py collectstatic --no-input
+```
+
+Go to `http://0.0.0.0/stt/`.
 
 ### Running in a local environment
 Before you run the server, you need to update the configuration located in `stt_app/config/config.json` with the path to your desired models.
