@@ -1,7 +1,7 @@
 {
     "stt": {
-      "model" :"/home/waser/.assistant/models/fr/SR/output_graph.tflite",
-      "lm": "/home/waser/.assistant/models/fr/SR/kenlm.scorer",
+      "model" :"/share/STT/models/output_graph.tflite",
+      "lm": "/share/STT/models/SR/kenlm.scorer",
       "audiofiledir": "/tmp/tmp_audio",
       "audiofilelength": "10",
       "debug": "1"
