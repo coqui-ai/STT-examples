@@ -8,6 +8,3 @@ django-filter>=1.0.2
 djangorestframework>=3.6.2
 channels==1.1.8
 stt~=1.0.0
-
-# Only for production (or with docker)
-gunicorn==20.0.*

@@ -6,6 +6,8 @@ WORKDIR /app
 
 RUN pip install -r requirements.txt
 
+RUN pip install 'gunicorn==20.0.*'
+
 EXPOSE 8000
 #EXPOSE 5432 # Uncomment if you use postgresQL db
 
