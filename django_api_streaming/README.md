@@ -32,7 +32,7 @@ Go to [`http://0.0.0.0/stt/`](http://0.0.0.0/stt/).
 
 ### Running in a local environment
 
-Before you run the server, you need to update the configuration located in `stt_app/config/config.json` with the path to your desired models.
+Before you run the server, you need to update the configuration located at `stt_app/config/config.json` with the path to your desired models.
 
 ```json
 {
