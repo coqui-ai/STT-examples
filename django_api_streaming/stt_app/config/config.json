@@ -1,0 +1,9 @@
+{
+    "stt": {
+      "model": "/share/STT/models/output_graph.tflite",
+      "lm": "/share/STT/models/kenlm.scorer",
+      "audiofiledir": "/tmp/tmp_audio",
+      "audiofilelength": "10",
+      "debug": "1"
+    }
+}
