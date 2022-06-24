@@ -28,7 +28,7 @@ Then collect staticfiles.
 docker-compose run --rm stt /app/manage.py collectstatic --no-input
 ```
 
-Go to `http://0.0.0.0/stt/`.
+Go to [`http://0.0.0.0/stt/`](http://0.0.0.0/stt/).
 
 ### Running in a local environment
 
