@@ -52,7 +52,7 @@ Run the server in local for testing (HTTP).
    python manage.py runserver
 ```
 
-Run the server in local for production (HTTP).
+Run the server in local for production (HTTPS).
 
 ```bash
    python manage.py runsslserver
