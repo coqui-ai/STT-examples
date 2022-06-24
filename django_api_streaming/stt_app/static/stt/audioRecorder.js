@@ -10,7 +10,7 @@
 		this.context = source.context;
 		this.node = (this.context.createScriptProcessor ||
 				this.context.createJavaScriptNode).call(this.context, 4096, 2, 2);
-		var worker = new Worker('/static/stt/audioRecorderWorker.js');
+		var worker = new Worker('/static/speech_server_main/audioRecorderWorker.js');
 		
 		worker.onmessage = function(e){
 			var blob = e.data;

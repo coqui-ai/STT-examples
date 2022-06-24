@@ -1,5 +1,5 @@
-importScripts('/static/stt/resampler.js');
-importScripts('/static/stt/WavAudioEncoder.js');
+importScripts('/static/speech_server_main/resampler.js');
+importScripts('/static/speech_server_main/WavAudioEncoder.js');
 
 var recLength = 0;
 var recBuffersL = [];

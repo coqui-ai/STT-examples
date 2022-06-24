@@ -13,7 +13,7 @@ def stt(audioPath, from_websocket=False):
         if fs == 16000:
             if from_websocket or check_audio_lenth(len(audio)):
                 logging.log("Starting transcribing...", "info")
-                text = STT.stt(audio)
+                text = STT.stt_model.stt(audio)
                 logging.log("Audio transcribed.", "info")
             elif not from_websocket:
                 text = "Audio should be less than " + str(audiolength) + " seconds."

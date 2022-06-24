@@ -37,4 +37,4 @@ class STT(AppConfig):
         stt_model.setScorerAlphaBeta(LM_ALPHA, LM_BETA)
 
     def ready(self):
-        print("Deepspeech Server Initialization")
+        print("STT Server Initialization")

@@ -16,7 +16,6 @@ class ConfigSTT:
         stt_config = config['stt']
         model = stt_config['model']
         lm = stt_config['lm']
-        trie = stt_config['trie']
         audiofiledir = stt_config['audiofiledir']
         audiofilelength = stt_config['audiofilelength']
         debug = stt_config['debug']
@@ -24,8 +23,6 @@ class ConfigSTT:
             return model
         elif key == 'lm':
             return lm
-        elif key == 'trie':
-            return trie
         elif key == 'audiofiledir':
             return audiofiledir
         elif key == 'audiofilelength':

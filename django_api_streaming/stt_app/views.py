@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from django.http.response import HttpResponse
 from datetime import datetime
-from .stt import STT
+from .stt.STT import stt
 from stt_app.config import config
 from stt_app import logging
 
@@ -22,7 +22,7 @@ def handle_audio(request):
         with open(file_name, 'wb') as f:
             f.write(data)
         
-        msg = STT.stt(file_name)
+        msg = stt(file_name)
     except Exception as err:
         logging.log("exception occurred in handle_audio: {0}".format(err), "error")
         msg = "failed"
