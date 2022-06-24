@@ -4,6 +4,8 @@ Implementation of an API to stream audio files for transcription in Django using
 
 ## Installation
 
+If you want to try the server inside a virtual environment.
+
 ```bash
    pip install -r requirements.txt
 ```
@@ -29,6 +31,7 @@ docker-compose run --rm stt /app/manage.py collectstatic --no-input
 Go to `http://0.0.0.0/stt/`.
 
 ### Running in a local environment
+
 Before you run the server, you need to update the configuration located in `stt_app/config/config.json` with the path to your desired models.
 
 ```json

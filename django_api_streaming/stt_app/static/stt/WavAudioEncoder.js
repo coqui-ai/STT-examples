@@ -30,27 +30,37 @@
     this.numSamples += len;
   };
 
-  Encoder.prototype.finish = function(mimeType, doCleanup) {
+  Encoder.prototype.finish = function(mimeType) {
     var dataSize = this.numChannels * this.numSamples * 2,
         view = new DataView(new ArrayBuffer(44));
+    /* RIFF identifier */
     setString(view, 0, 'RIFF');
-    view.setUint32(4, 36 + dataSize, true);
+    /* RIFF chunk length */
+    view.setUint32(4, 36 + this.numSamples * 2, true);
+    /* RIFF type */
     setString(view, 8, 'WAVE');
+    /* format chunk identifier */
     setString(view, 12, 'fmt ');
+    /* format chunk length */
     view.setUint32(16, 16, true);
+    /* sample format (raw) */
     view.setUint16(20, 1, true);
+    /* channel count */
     view.setUint16(22, this.numChannels, true);
+    /* sample rate */
     view.setUint32(24, this.sampleRate, true);
-    view.setUint32(28, this.sampleRate * 4, true);
+    /* byte rate (sample rate * block align) */
+    view.setUint32(28, this.sampleRate * 2, true);
+    /* block align (channel count * bytes per sample) */
     view.setUint16(32, this.numChannels * 2, true);
+    /* bits per sample */
     view.setUint16(34, 16, true);
+    /* data chunk identifier */
     setString(view, 36, 'data');
-    view.setUint32(40, dataSize, true);
+    view.setUint32(40, this.numSamples * 2, true);
     this.dataViews.unshift(view);
     var blob = new Blob(this.dataViews, { type: 'audio/wav' });
-    if(doCleanup){
-    	this.cleanup();
-    }
+    this.cleanup();
     return blob;
   };
 
