@@ -1,0 +1,14 @@
+{
+  "name": "wasm_simple",
+  "version": "0.1.0",
+  "description": "A simple STT WASM example that loads an audio file and processes it",
+  "private": true,
+  "scripts": {
+    "download": "download --extract --strip 1 --out lib https://github.com/coqui-ai/STT/releases/latest/download/libstt.tflite.wasm.zip",
+    "start": "ws --cors.opener-policy same-origin --cors.embedder-policy require-corp"
+  },
+  "dependencies": {
+    "download-cli": "^1.1.1",
+    "local-web-server": "^5.2.1"
+  }
+}
