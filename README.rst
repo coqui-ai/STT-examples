@@ -34,6 +34,7 @@ JavaScript:
 * `Node.JS wav <nodejs_wav/Readme.md>`_
 * `Web Microphone Websocket streaming <web_microphone_websocket/Readme.md>`_
 * `Electron wav transcriber <electron/Readme.md>`_
+* `Client-side, fully offline WebAssembly audio transcriber <wasm/Readme.md>`_
 
 Windows/C#:
 -----------
