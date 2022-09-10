@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>WASM with WebWorkers Sample</title>
+  </head>
+  <body>
+    <script>
+        var audioContext;
+        var sttRuntimeWorker;
+
+        function loadModel(modelFile) {
+            console.log(`Loading models`, modelFile);
+
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                const modelData = new Uint8Array(reader.result);
+                sttRuntimeWorker.postMessage({
+                    name: "load-model",
+                    params: {
+                        modelData
+                    }
+                }, [modelData.buffer]);
+            };
+            reader.readAsArrayBuffer(modelFile);
+        };
+
+        function loadScorer(scorerFile) {
+            console.log(`Loading scorer`, scorerFile);
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const scorerData = new Uint8Array(reader.result);
+                sttRuntimeWorker.postMessage({
+                    name: "load-scorer",
+                    params: {
+                        scorerData
+                    }
+                }, [scorerData.buffer]);
+            };
+            reader.readAsArrayBuffer(scorerFile);
+        };
+
+        function processAudio(audioFile) {
+            console.log(`Loading audio file`, audioFile);
+
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                audioContext.decodeAudioData(reader.result).then(decodedAudio => {
+                    const audioBuffer = decodedAudio.getChannelData(0);
+                    sttRuntimeWorker.postMessage({
+                        name: "process-audio",
+                        params: {
+                            audioBuffer
+                        }
+                    }, [audioBuffer.buffer]);
+                });
+            };
+            reader.readAsArrayBuffer(audioFile);
+        };
+
+        function processWorkerResponses(event) {
+            if (!event
+                || !event.data
+                || !("name" in event.data)) {
+                console.log(`Ignoring malformed event`, event);
+                return;
+            }
+
+            switch (event.data.name)
+            {
+                case "stt-initialized": {
+                    // Now that we know the WASM module is ready, enable
+                    // the file picker for the model.
+                    const input = document.getElementById("modelpicker");
+                    input.addEventListener("change", (e) => loadModel(e.target.files[0]), false);
+                    input.disabled = false;
+                } break;
+
+                case "stt-model-loaded": {
+                    // Create an audio context for future processing.
+                    audioContext = new AudioContext({
+                        // Use the model's sample rate so that the decoder will resample for us.
+                        sampleRate: event.data.params.modelSampleRate
+                    });
+
+                    const scorerInput = document.getElementById("scorerpicker");
+                    scorerInput.addEventListener("change", (e) => loadScorer(e.target.files[0]), false);
+                    scorerInput.disabled = false;
+
+                    // Now that a model is available, enable opening the audio file.
+                    const audioInput = document.getElementById("audiopicker");
+                    audioInput.addEventListener("change", (e) => processAudio(e.target.files[0]), false);
+                    audioInput.disabled = false;
+                } break;
+
+                case "stt-done": {
+                    document.getElementById("result").textContent = event.data.params.transcription;
+                    document.getElementById("elapsedSeconds").textContent = event.data.params.elapsedTime;
+                } break;
+            }
+        }
+
+        function init() {
+            sttRuntimeWorker = new Worker("./worker.js");
+            sttRuntimeWorker.onmessage = e => processWorkerResponses(e);
+        }
+
+        init();
+    </script>
+    <div>
+        <label for="modelpicker">Coqui TFLite Model file:</label>
+        <input type="file" name="modelpicker" id="modelpicker" disabled>
+
+        <br />
+
+        <label for="scorerpicker">Scorer (optional):</label>
+        <input type="file" name="scorerpicker" id="scorerpicker" disabled>
+
+        <br />
+
+        <label for="audiopicker">Audio sample file:</label>
+        <input type="file" name="audiopicker" id="audiopicker" disabled>
+
+        <br />
+
+        <label for="result">Transcription:</label>
+        <span id="result"></span>
+
+        <br />
+
+        <label for="elapsedSeconds">Elapsed time (s):</label>
+        <span id="elapsedSeconds"></span>
+    </div>
+  </body>
+</html>
