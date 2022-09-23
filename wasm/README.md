@@ -1,6 +1,9 @@
 # STT WebAssembly example
 
-This is an example of STT running in a web page and processing audio files.
+This directory contains examples of STT running in a web page and processing audio files:
+
+- `index.html`: STT running in a web page, processing a manually provided audio file;
+- `index_worker.html`: STT running in a [WebWorker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) within a web page, processing a manually provided audio file;
 
 ## Install
 
