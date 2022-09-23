@@ -20,8 +20,8 @@ Ubuntu/Debian
 
 A list of distributions where the package is available can be found at: https://pkgs.org/download/sox
 
-#### 0.1 Download Deepspeech 
-Either clone from git via git clone, or Download a version from the release page
+#### 0.1 Download STT 
+Either clone from git via git clone, or Download a version from the [release page](https://github.com/coqui-ai/STT/releases)
 
 For the next steps we assume you have extracted the files to `~/STT`
 
@@ -85,7 +85,7 @@ $ python3 audioTranscript_gui.py
 
 ```
 
-![Deepspeech Transcriber](../../doc/audioTranscript.png)
+![STT Transcriber](../../doc/audioTranscript.png)
 
 
 #### 2.1. Sporadic failures in pyqt
